@@ -15,9 +15,11 @@
     --card: #0d152b;
     --text: #ffffff;
     --text-light: #aeb8cc;
+
     --primary: #00e5ff;
     --secondary: #7c3aed;
     --green: #00ffa3;
+
     --border: rgba(0, 229, 255, 0.18);
 }
 
@@ -26,11 +28,20 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
+    overflow-x: hidden;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+}
+
+button {
+    font-family: inherit;
 }
 
 section {
@@ -46,17 +57,21 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
 
-    background: rgba(5, 8, 22, 0.85);
+    background: rgba(5, 8, 22, 0.88);
     backdrop-filter: blur(15px);
 
     border-bottom: 1px solid var(--border);
 }
 
 .navbar {
+    position: relative;
+
     max-width: 1200px;
     height: 75px;
+
     margin: auto;
     padding: 0 20px;
 
@@ -76,7 +91,9 @@ header {
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 28px;
+
     list-style: none;
 }
 
@@ -90,23 +107,48 @@ header {
     color: var(--primary);
 }
 
-#theme-btn {
+
+/* =========================
+   NAV BUTTONS
+========================= */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#themeBtn,
+.menu-btn {
     background: transparent;
+
     border: 1px solid var(--border);
-    color: white;
+
+    color: var(--text);
 
     padding: 8px 12px;
+
     border-radius: 10px;
 
     cursor: pointer;
-    font-size: 17px;
+
+    font-size: 18px;
 
     transition: 0.3s;
 }
 
-#theme-btn:hover {
+#themeBtn:hover,
+.menu-btn:hover {
     border-color: var(--primary);
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+
+    color: var(--primary);
+
+    box-shadow:
+        0 0 15px rgba(0, 229, 255, 0.2);
+}
+
+.menu-btn {
+    display: none;
 }
 
 
@@ -142,14 +184,19 @@ header {
 
 .hello {
     color: var(--primary);
+
     letter-spacing: 4px;
+
     font-weight: bold;
+
     margin-bottom: 10px;
 }
 
 .hero h1 {
     font-size: clamp(48px, 7vw, 82px);
+
     line-height: 1.1;
+
     margin-bottom: 18px;
 
     background: linear-gradient(
@@ -165,7 +212,9 @@ header {
 
 .hero h2 {
     font-size: 23px;
+
     color: var(--text-light);
+
     margin-bottom: 25px;
 }
 
@@ -175,14 +224,24 @@ header {
 
 .description {
     color: var(--text-light);
+
     font-size: 17px;
+
     max-width: 650px;
+
     margin-bottom: 35px;
 }
 
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
 .buttons {
     display: flex;
+
     gap: 15px;
+
     flex-wrap: wrap;
 }
 
@@ -193,13 +252,15 @@ header {
 
     border-radius: 10px;
 
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
 
     color: white;
+
     font-weight: bold;
 
     transition: 0.3s;
@@ -217,7 +278,9 @@ header {
 
 .btn-outline {
     background: transparent;
+
     border: 1px solid var(--primary);
+
     color: var(--primary);
 }
 
@@ -235,20 +298,23 @@ header {
     height: 330px;
 
     border-radius: 50%;
+
     padding: 7px;
 
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary),
-        var(--green)
-    );
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary),
+            var(--green)
+        );
 
     box-shadow:
         0 0 35px rgba(0, 229, 255, 0.25),
         0 0 80px rgba(124, 58, 237, 0.15);
 
-    animation: floating 4s ease-in-out infinite;
+    animation:
+        floating 4s ease-in-out infinite;
 }
 
 .profile-border img {
@@ -256,6 +322,7 @@ header {
     height: 100%;
 
     object-fit: cover;
+
     border-radius: 50%;
 
     border: 6px solid var(--bg);
@@ -280,6 +347,7 @@ header {
 
 .section-title {
     text-align: center;
+
     margin-bottom: 55px;
 }
 
@@ -308,6 +376,7 @@ header {
 
 .about-container {
     max-width: 1100px;
+
     margin: auto;
 
     display: grid;
@@ -319,11 +388,13 @@ header {
 
 .about-text h3 {
     font-size: 28px;
+
     margin-bottom: 20px;
 }
 
 .about-text p {
     color: var(--text-light);
+
     margin-bottom: 18px;
 }
 
@@ -379,6 +450,7 @@ header {
 
 .skills-container {
     max-width: 1100px;
+
     margin: auto;
 
     display: grid;
@@ -430,6 +502,7 @@ header {
 
 .projects-container {
     max-width: 1100px;
+
     margin: auto;
 
     display: grid;
@@ -641,16 +714,35 @@ footer p:first-child {
 ========================= */
 
 body.light-mode {
-    --bg: #f4f7fb;
-    --bg-light: #e9eef7;
+    --bg: #f3f6fb;
+    --bg-light: #e8edf5;
     --card: #ffffff;
+
     --text: #111827;
-    --text-light: #526071;
-    --border: rgba(0, 0, 0, 0.1);
+    --text-light: #536174;
+
+    --primary: #0099bb;
+    --secondary: #6d28d9;
+
+    --border: rgba(15, 23, 42, 0.12);
 }
 
 body.light-mode header {
-    background: rgba(244, 247, 251, 0.9);
+    background: rgba(243, 246, 251, 0.92);
+}
+
+body.light-mode .nav-links a {
+    color: #536174;
+}
+
+body.light-mode .nav-links a:hover,
+body.light-mode .nav-links a.active {
+    color: var(--primary);
+}
+
+body.light-mode #themeBtn,
+body.light-mode .menu-btn {
+    color: #111827;
 }
 
 body.light-mode .hero {
@@ -668,7 +760,11 @@ body.light-mode .hero {
 }
 
 body.light-mode .project-card {
-    background: white;
+    background: #ffffff;
+}
+
+body.light-mode .profile-border img {
+    border-color: var(--bg);
 }
 
 body.light-mode footer p:first-child {
@@ -677,7 +773,7 @@ body.light-mode footer p:first-child {
 
 
 /* =========================
-   RESPONSIVE
+   TABLET
 ========================= */
 
 @media (max-width: 1000px) {
@@ -710,61 +806,92 @@ body.light-mode footer p:first-child {
 }
 
 
-@media (max-width: 650px) {
-
-    section {
-        padding: 80px 5%;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-    .hero h2 {
-        font-size: 18px;
-    }
-
-    .profile-border {
-        width: 230px;
-        height: 230px;
-    }
-
-    .about-info {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-container,
-    .projects-container {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title h2 {
-        font-size: 34px;
-    }
-}
-/* ================= MOBILE RESPONSIVE ================= */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 768px) {
 
+    section {
+        padding: 80px 20px;
+    }
+
     /* Navbar */
+
     .navbar {
-        padding: 15px 20px;
+        height: 70px;
+
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .menu-btn {
+        display: block;
     }
 
     .nav-links {
         display: none;
+
+        position: absolute;
+
+        top: 78px;
+
+        left: 15px;
+        right: 15px;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 10px;
+
+        background: var(--card);
+
+        border: 1px solid var(--border);
+
+        border-radius: 16px;
+
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.25);
     }
 
-    /* Home */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+
+        width: 100%;
+
+        padding: 13px;
+
+        text-align: center;
+
+        border-radius: 10px;
+    }
+
+    .nav-links a:hover {
+        background: rgba(0, 229, 255, 0.08);
+    }
+
+
+    /* Hero */
+
     .hero {
         min-height: auto;
-        padding: 120px 20px 60px;
-        flex-direction: column;
-        text-align: center;
+
+        padding:
+            120px 20px
+            70px;
+
         gap: 45px;
     }
 
@@ -772,52 +899,55 @@ body.light-mode footer p:first-child {
         width: 100%;
     }
 
+    .hello {
+        font-size: 13px;
+    }
+
     .hero h1 {
         font-size: clamp(42px, 12vw, 58px);
+
         line-height: 1.1;
     }
 
     .hero h2 {
         font-size: 18px;
+
         line-height: 1.8;
     }
 
-    .hero-text {
+    .description {
         font-size: 15px;
+
         line-height: 1.8;
     }
 
-    .hero-buttons {
+    .buttons {
         flex-direction: column;
+
         width: 100%;
     }
 
     .btn {
         width: 100%;
+
+        text-align: center;
     }
 
+
     /* Profile */
+
     .profile-border {
         width: min(75vw, 280px);
+
         height: min(75vw, 280px);
     }
 
-    /* Sections */
-    .section {
-        padding: 70px 20px;
-    }
-
-    .section-title {
-        margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-        font-size: 34px;
-    }
 
     /* About */
-    .about-content {
+
+    .about-container {
         grid-template-columns: 1fr;
+
         gap: 30px;
     }
 
@@ -827,60 +957,89 @@ body.light-mode footer p:first-child {
 
     .about-info {
         grid-template-columns: 1fr 1fr;
+
         gap: 12px;
     }
 
-    .info-card {
+    .info-box {
         padding: 18px;
     }
 
+
     /* Skills */
+
     .skills-container {
         grid-template-columns: 1fr;
     }
 
     .skill-card {
-        padding: 22px;
+        padding: 24px;
     }
 
+
     /* Projects */
+
     .projects-container {
         grid-template-columns: 1fr;
     }
 
     .project-card {
-        min-height: auto;
         padding: 24px;
     }
 
+
     /* Contact */
+
     .contact-buttons {
         flex-direction: column;
+
         width: 100%;
     }
 
     .contact-btn {
         width: 100%;
+
+        text-align: center;
     }
 
+
+    /* Titles */
+
+    .section-title {
+        margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+        font-size: 34px;
+    }
+
+
     /* Footer */
+
     footer {
         padding: 25px 20px;
+
         font-size: 14px;
     }
 }
 
 
-/* ================= SMALL PHONES ================= */
+/* =========================
+   SMALL PHONES
+========================= */
 
 @media (max-width: 400px) {
 
-    .hero {
+    section {
         padding-left: 15px;
         padding-right: 15px;
     }
 
-    .section {
+    .navbar {
+        padding: 0 10px;
+    }
+
+    .hero {
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -902,5 +1061,14 @@ body.light-mode footer p:first-child {
         height: 220px;
     }
 
-}
+    .nav-buttons {
+        gap: 6px;
+    }
 
+    #themeBtn,
+    .menu-btn {
+        padding: 7px 9px;
+
+        font-size: 16px;
+    }
+}
