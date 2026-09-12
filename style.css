@@ -746,3 +746,161 @@ body.light-mode footer p:first-child {
         font-size: 34px;
     }
 }
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    /* Home */
+    .hero {
+        min-height: auto;
+        padding: 120px 20px 60px;
+        flex-direction: column;
+        text-align: center;
+        gap: 45px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 12vw, 58px);
+        line-height: 1.1;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .hero-text {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    /* Profile */
+    .profile-border {
+        width: min(75vw, 280px);
+        height: min(75vw, 280px);
+    }
+
+    /* Sections */
+    .section {
+        padding: 70px 20px;
+    }
+
+    .section-title {
+        margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+        font-size: 34px;
+    }
+
+    /* About */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-text h3 {
+        font-size: 25px;
+    }
+
+    .about-info {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .info-card {
+        padding: 18px;
+    }
+
+    /* Skills */
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        padding: 22px;
+    }
+
+    /* Projects */
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        min-height: auto;
+        padding: 24px;
+    }
+
+    /* Contact */
+    .contact-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contact-btn {
+        width: 100%;
+    }
+
+    /* Footer */
+    footer {
+        padding: 25px 20px;
+        font-size: 14px;
+    }
+}
+
+
+/* ================= SMALL PHONES ================= */
+
+@media (max-width: 400px) {
+
+    .hero {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 16px;
+    }
+
+    .about-info {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-border {
+        width: 220px;
+        height: 220px;
+    }
+
+}
+
